@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+#myContainer {
+
+width: 1000px;
+height: 800px;
+z-index:1;
+position: relative;
+top:10px;
+left:10px;
+background-image: url("https://vignette2.wikia.nocookie.net/rickandmorty/images/3/35/Pluto.png/revision/latest?cb=20150929103139");
+  
+}
+#myAnimation {
+  width: 40px;
+  position:absolute;
+  height: 40px;
+  position: absolute;
+  z-index:1000;
+  top:100px;
+  left:180px;
+
+}
+</style>
+<body>
+
+<p>
+<button onclick="myMove()">Click Me</button> 
+<p id="valueX">VALUE OF </p>
+<p id="valueCTR">VALUE OF </p>
+
+
+</p>
+
+<div id ="myContainer">
+<div id ="myAnimation"><img src="spaceship.png" width="80" height="50">/</div>
+</div>
+
+<script>
+function myMove() {
+
+  var elem = document.getElementById("myAnimation");   
+  var pos = 320;
+  var pos2 = 0;
+  var pos3 = 0;
+  var center = 0;
+  var ctr = 0;
+
+   var x =  document.getElementById("valueX");
+   
+   var id = setInterval(frame, 365);
+  function frame() {
+  
+    if (ctr == 365) {
+      clearInterval(id);
+    } else {
+   
+    ctr = ctr+10;
+   document.getElementById("valueCTR").innerHTML = 100 * Math.cos(ctr * 3.1415926 / 180.0) + 50 + 'px';
+   x.innerHTML = 100 * Math.sin(ctr * 3.1415926 / 180.0) + 50 + 'px';
+   
+     elem.style.top = 80 * Math.cos(ctr * 3.1415926 / 180.0) + 400 + 'px';
+        elem.style.left = 80 * Math.sin(ctr * 3.1415926 / 180.0) + 400 + 'px';
+    }
+  }
+}
+</script>
+
+</body>
+</html>
